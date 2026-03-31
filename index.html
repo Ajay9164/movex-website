@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Movex Packers and Movers | Truck Booking & Logistics</title>
+
+<link rel="icon" href="https://res.cloudinary.com/dzrgofvqa/image/upload/q_auto:best/logo_yh8i1b">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+/* HEADER */
+.seo-header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #141e30, #243b55, #1b2735);
+}
+
+.seo-header img {
+  width: 120px;
+}
+
+.seo-header h1 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+/* ✅ FIXED IFRAME */
+iframe {
+  width: 100%;
+  border: none;
+  display: block;
+  overflow: hidden;
+}
+
+/* LOADER */
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #141e30, #243b55, #1b2735);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .seo-header h1 {
+    font-size: 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="seo-header">
+  <img src="https://res.cloudinary.com/dzrgofvqa/image/upload/q_auto:best/logo_yh8i1b">
+  <h1>Movex Packers and Movers in Bangalore & Karnataka</h1>
+  <p>Book trucks, track shipments easily with Movex</p>
+</div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  🚚 Loading Movex...
+</div>
+
+<!-- ✅ IFRAME -->
+<iframe 
+  id="zohoFrame"
+  src="https://creatorapp.zohopublic.in/movex.support/movex/page-embed/Movex_Home/zrNZsOdwGQ3bdGsG161jDR9Y7hvWzx3WSaT6rywAQjnXqE8Omrr4jGN9KrQsjMuMY0pRW5wA3h2bYeE2C2az9MJ5X5VepfsCMYPG"
+  scrolling="no">
+</iframe>
+
+<!-- ✅ SCRIPT -->
+<script>
+const iframe = document.getElementById("zohoFrame");
+
+function setPerfectHeight() {
+  const screenHeight = window.innerHeight;
+  let height;
+
+  if (window.innerWidth < 768) {
+    // ✅ MOBILE (needs more height to avoid inner scroll)
+    height = screenHeight * 1.8;
+  } else {
+    // ✅ DESKTOP (less height to avoid blank space)
+    height = screenHeight * 1.0;
+  }
+
+  iframe.style.height = height + "px";
+}
+
+iframe.onload = function () {
+  try {
+    // Try dynamic height (usually blocked)
+    const realHeight = iframe.contentWindow.document.body.scrollHeight;
+    iframe.style.height = realHeight + "px";
+  } catch (e) {
+    setPerfectHeight();
+  }
+
+  document.getElementById("loader").style.display = "none";
+};
+
+// ✅ IMPORTANT: run once immediately
+setPerfectHeight();
+
+// ✅ Fix on resize/orientation change
+window.addEventListener("resize", setPerfectHeight);
+</script>
+
+</body>
+</html>
